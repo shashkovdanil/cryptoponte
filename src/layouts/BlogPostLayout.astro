@@ -1,4 +1,6 @@
 ---
+import Layout from './Layout.astro'
+
 interface Props {
   frontmatter: {
     description: string
@@ -11,17 +13,8 @@ const {
 } = Astro.props
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content={description} name="description" />
-    <meta content="width=device-width" name="viewport" />
-    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-    <meta content={Astro.generator} name="generator" />
-    <title>{title}</title>
-  </head>
-  <body>
+<Layout title={title}>
+  <div class="md">
     <slot />
-  </body>
-</html>
+  </div>
+</Layout>

@@ -4,6 +4,9 @@
     "astro/astro": true,
     "es2020": true
   },
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "extends": [
     "plugin:perfectionist/recommended-natural",
     "plugin:prettier/recommended",

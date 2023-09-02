@@ -2,6 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: Hello world
 description: Find out what makes Astro awesome!
+date: 2021-03-01
 ---
 
 # Hi there!
