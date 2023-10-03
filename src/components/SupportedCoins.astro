@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets'
+
+import btc from '../assets/btc.svg'
+import monero from '../assets/monero.svg'
+import usdtErc from '../assets/usdt-erc.svg'
+import usdtTrc from '../assets/usdt-trc.svg'
+import Coin from './Coin.astro'
+import Section from './Section.astro'
+---
+
+<Section id="supported-coins" title="Supported coins">
+  <p class="mb-20">Here are the coins you can pay with.</p>
+  <div class="grid gap-4 grid-cols-2 md:grid-cols-4">
+    <Coin alt="Bitcoin" name="Bitcoin" src={btc} symbol="BTC" />
+    <Coin alt="Monero" name="Monero" src={monero} symbol="XMR" />
+    <Coin
+      alt="Tether USDT (TRC20)"
+      name="Tether"
+      src={usdtTrc}
+      symbol="USDT (TRC20)"
+    />
+    <Coin
+      alt="Tether USDT (ERC20)"
+      name="Tether"
+      src={usdtErc}
+      symbol="USDT (ERC20)"
+    />
+  </div>
+</Section>

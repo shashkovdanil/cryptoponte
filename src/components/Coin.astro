@@ -1,0 +1,20 @@
+---
+import type { ImageMetadata } from 'astro'
+
+import { Image } from 'astro:assets'
+
+interface Props {
+  alt: string
+  name: string
+  src: ImageMetadata
+  symbol: string
+}
+
+const { alt, name, src, symbol } = Astro.props
+---
+
+<div class="bg-gray-section rounded-lg p-5 md:p-10">
+  <Image alt={alt} class="w-32 md:w-44 mb-7 mx-auto" src={src} />
+  <p class="text-center text-lg font-semibold">{name}</p>
+  <p class="text-center text-lg">{symbol}</p>
+</div>

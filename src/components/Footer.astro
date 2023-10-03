@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets'
+
+import logo from '../assets/logo.svg'
+import mail from '../assets/mail.svg'
+import phone from '../assets/phone.svg'
+
+const year = new Date().getFullYear()
+---
+
+<footer class="px-6 w-full max-w-6xl mx-auto py-24" id="contacts">
+  <p class="mb-7 font-semibold">Contacts</p>
+  <div class="md:grid md:grid-cols-3 justify-between items-end">
+    <div class="mb-24 md:mb-0">
+      <a
+        class="flex items-center gap-7 mb-5"
+        href="mailto:cryptoponte@protonmail.com"
+      >
+        <Image alt="" src={mail} />
+        <span>cryptoponte@protonmail.com</span>
+      </a>
+      <a class="flex items-center gap-7" href="tel:XXX-XXX-XXX">
+        <Image alt="" src={phone} />
+        <span>XXX-XXX-XXX</span>
+      </a>
+    </div>
+    <p class="font-semibold text-center">{year}</p>
+    <a class="hidden md:block justify-self-end" href="/">
+      <Image alt="Cryptoponte" height="50" src={logo} width="101" />
+    </a>
+  </div>
+</footer>

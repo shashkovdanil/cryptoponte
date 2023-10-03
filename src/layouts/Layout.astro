@@ -1,4 +1,7 @@
 ---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+
 interface Props {
   title: string
 }
@@ -18,12 +21,28 @@ const { title } = Astro.props
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800;900&display=swap"
       rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"
+    ></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"
+    ></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+      rel="stylesheet"
+      type="text/css"
     />
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>

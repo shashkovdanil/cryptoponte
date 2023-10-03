@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets'
+
+import telegram from '../assets/gold-telegram.svg'
+import x from '../assets/gold-x.svg'
+import youtube from '../assets/gold-youtube.svg'
+import Section from './Section.astro'
+---
+
+<Section isGrey>
+  <h2 class="text-4xl uppercase font-medium mb-7 text-center">Join Us</h2>
+  <div class="flex justify-center gap-7">
+    <a href="/todo">
+      <Image alt="YouTube" src={youtube} />
+    </a>
+    <a href="/todo">
+      <Image alt="X" src={x} />
+    </a>
+    <a href="/todo">
+      <Image alt="Telegram" src={telegram} />
+    </a>
+  </div>
+</Section>

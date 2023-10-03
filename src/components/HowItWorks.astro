@@ -1,0 +1,28 @@
+---
+import Section from './Section.astro'
+import Step from './Step.astro'
+---
+
+<Section id="how-it-works" title="How it works">
+  <div class="flex gap-12 flex-col">
+    <Step
+      color="orange"
+      description="Open our map and choose one of the desired services. There are cafes, restaurants, hotels, various shops and more - all of them accept cryptocurrency as payment."
+      num={1}
+      title="Open our map"
+    />
+    <Step
+      color="green"
+      description="After getting the service or purchase, specify at the checkout that you want to pay with crypto. You will have a choice of which crypto to pay with. You can find the list of cryptocurrencies available for payment below. "
+      isReverse
+      num={2}
+      title="Get the service & pay"
+    />
+    <Step
+      color="blue"
+      description="The seller enters the amount to be paid in euros and generates a QR code for crypto-payment. Just scan this code with your crypto wallet. Done!"
+      num={3}
+      title="Scan the QR code"
+    />
+  </div>
+</Section>

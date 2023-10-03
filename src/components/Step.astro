@@ -1,0 +1,41 @@
+---
+interface Props {
+  color: 'blue' | 'green' | 'orange'
+  description: string
+  isReverse?: boolean
+  num: number
+  title: string
+}
+
+const { color, description, isReverse, num, title } = Astro.props
+---
+
+<div
+  class:list={[
+    'rounded-xl md:flex',
+    {
+      'bg-blue-gradient': color === 'blue',
+      'bg-green-gradient': color === 'green',
+      'bg-orange-gradient': color === 'orange',
+    },
+  ]}
+>
+  <div
+    class="flex rounded-t-lg relative top-1 mx-1 p-10 md:p-0 md:h-96 md:items-center md:justify-center bg-black items-start md:w-1/2 md:rounded-l-lg md:rounded-r-none md:mb-2"
+  >
+    <div class="max-w-md flex gap-4 md:p-8">
+      <div
+        class="text-7xl/none font-black text-white/30 relative -top-1 md:text-9xl/none"
+      >
+        {num}
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-2">{title}</h3>
+        <p class="text-base text-balance italic">
+          {description}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class:list={['h-36 md:w-1/2', { 'md:-order-1': isReverse }]}></div>
+</div>

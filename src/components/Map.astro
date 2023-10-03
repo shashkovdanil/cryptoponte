@@ -1,0 +1,117 @@
+---
+import Section from './Section.astro'
+---
+
+<Section id="map" isGrey title="Our map">
+  <div class="max-w-3xl">
+    <p class="mb-20">
+      Click on our map the to see where you can already pay for goods with
+      crypto.
+    </p>
+  </div>
+  <div class="h-[400px] w-full rounded-lg" id="map-container"></div>
+  <script>
+    window.onload = function () {
+      mapboxgl.accessToken =
+        'pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg'
+
+      const map = new mapboxgl.Map({
+        center: [-25.648491, 37.74283],
+        container: 'map-container',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        zoom: 13,
+      })
+
+      map.addControl(
+        new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          mapboxgl: mapboxgl,
+        }),
+      )
+      map.addControl(new mapboxgl.NavigationControl())
+      map.addControl(new mapboxgl.FullscreenControl())
+
+      const points = [
+        { lat: 37.74583, lng: -25.68 },
+        { lat: 37.73983, lng: -25.67 },
+        { lat: 37.74923, lng: -25.65 },
+      ]
+
+      points.forEach(point => {
+        const el = document.createElement('div')
+        el.innerHTML =
+          '<svg width="57" height="75" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28.116 0C12.71 0 .196 12.398 0 27.764c2.841 8.615 8.82 12.98 17.786 12.98 1.244 0 2.406-.114 3.511-.317-4.906-2.728-8.006-8.305-7.065-14.5.928-6.152 6.048-11.066 12.23-11.767 6.825-.783 12.817 3.335 14.92 9.284 8.012 0 12.154-9.764 6.44-15.385C42.745 3.076 35.794 0 28.116 0ZM34.821 54.587c4.78-3.202 9.718-6.505 17.105-7.452C44.046 64.383 28.122 75 28.122 75s-7.785-5.192-15.16-14.21a25.78 25.78 0 0 0 4.83.435c7.104.007 11.921-3.22 17.03-6.638Z" fill="#FF7A20"/><path d="M56.226 29.135c-.133 5.463-1.314 10.566-3.132 15.233l-.013-.12c-8.877.746-14.673 4.63-19.794 8.053-4.95 3.316-9.225 6.177-15.5 6.177-2.823 0-5.374-.442-7.622-1.32C5.821 51.082 2.008 43.655.587 35.185c4.672 6.695 11.605 8.306 17.2 8.306 7.109 0 11.926-3.228 17.028-6.638 5.67-3.79 11.53-7.718 21.41-7.718Z" fill="#FF7A20"/></svg>'
+
+        const popup = new mapboxgl.Popup({
+          className: 'marker-popup',
+          maxWidth: '350px',
+          offset: 25,
+        }).setHTML(
+          `
+            <div>
+              <div class="marker-popup-header">
+                <h3>Intz48 Coffee Roasters Azores</h3>
+              </div>
+              <div class="marker-popup-description">
+                <p class="marker-type">Coffee</p>
+                <p class="marker-address">R. Hintze Ribeiro 46-48, 9500-049 Ponta Delgada</p>
+              </div>
+              <a class="gmaps-link" href="https://www.google.com/maps/place/Azores/@38.326907,-28.1409956,7z/data=!3m1!4b1!4m6!3m5!1s0xb467f1e11e43b05:0xe2911b674bce0c1d!8m2!3d37.7412488!4d-25.6755944!16zL20vMDE0bDk?entry=ttu" target="_blank">See on Google maps</a>
+            </div>
+          `,
+        )
+
+        new mapboxgl.Marker(el)
+          .setLngLat([point.lng, point.lat])
+          .setPopup(popup)
+          .addTo(map)
+      })
+    }
+  </script>
+</Section>
+
+<style is:global>
+  .marker-popup {
+    font-family: Montserrat, system-ui;
+    background: rgb(26 26 26);
+    @apply overflow-hidden rounded-lg;
+  }
+
+  .mapboxgl-popup-close-button {
+    @apply h-11 w-11 text-5xl/none;
+  }
+
+  .marker-popup .mapboxgl-popup-tip {
+    @apply hidden;
+  }
+
+  .marker-popup .mapboxgl-popup-content {
+    @apply bg-gray-section p-0;
+  }
+
+  .marker-popup .marker-popup-header {
+    background: rgb(43 43 43);
+    @apply px-7 py-4;
+  }
+
+  .marker-popup .marker-popup-header h3 {
+    @apply text-xl/tight font-semibold;
+  }
+
+  .marker-popup-description {
+    @apply px-7 py-4;
+  }
+
+  .marker-type {
+    @apply mb-4;
+  }
+
+  .marker-type,
+  .marker-address {
+    @apply text-sm/normal;
+  }
+
+  .gmaps-link {
+    @apply mx-auto mb-5 block w-fit rounded-lg bg-orange-gradient px-5 py-4 text-xl/none font-semibold text-black;
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets'
+
+import logo from '../assets/logo.svg'
+import menu from '../assets/menu.svg'
+import telegram from '../assets/telegram.svg'
+import x from '../assets/x.svg'
+import youtube from '../assets/youtube.svg'
+---
+
+<header class="relative md:hidden">
+  <div class="flex justify-between py-5 px-6">
+    <a href="/">
+      <Image alt="Cryptoponte" src={logo} />
+    </a>
+    <button
+      aria-controls="menu"
+      aria-expanded="false"
+      aria-haspopup="dialog"
+      aria-label="Open menu"
+      type="button"
+    >
+      <Image alt="" src={menu} />
+    </button>
+    <script>
+      const id = 'menu'
+
+      const menuButton = document.querySelector(`button[aria-controls="${id}"]`)
+      const menu = document.getElementById(id)
+
+      menuButton.addEventListener('click', () => {
+        menu.classList.toggle('hidden')
+      })
+    </script>
+  </div>
+  <div
+    aria-labelledby="menu"
+    class="py-10 px-6 absolute hidden bg-black z-10 w-full"
+    id="menu"
+    role="dialog"
+  >
+    <div class="flex items-end flex-col">
+      <nav class="mb-10">
+        <ul class="text-right flex gap-5 flex-col font-medium text-sm">
+          <li><a href="#about">About project</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#supported-coins">Supported coins</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+      </nav>
+      <div class="flex items-center gap-6">
+        <a href="/todo">
+          <Image alt="" src={youtube} />
+        </a>
+        <a href="/todo">
+          <Image alt="" src={x} />
+        </a>
+        <a href="/todo">
+          <Image alt="" src={telegram} />
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<header
+  class="hidden md:flex justify-between items-center px-6 w-full max-w-6xl mx-auto py-7"
+>
+  <a href="/">
+    <Image alt="Cryptoponte" height="50" src={logo} width="101" />
+  </a>
+  <nav>
+    <ul class="text-right flex gap-8 font-medium text-sm">
+      <li><a href="#about">About project</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#supported-coins">Supported coins</a></li>
+      <li><a href="#contacts">Contacts</a></li>
+    </ul>
+  </nav>
+  <div class="flex items-center gap-4">
+    <a href="/todo">
+      <Image alt="" height="16" src={youtube} width="23" />
+    </a>
+    <a href="/todo">
+      <Image alt="" height="20" src={x} width="22" />
+    </a>
+    <a href="/todo">
+      <Image alt="" height="18" src={telegram} width="23" />
+    </a>
+  </div>
+</header>

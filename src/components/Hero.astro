@@ -1,0 +1,50 @@
+---
+import { getImage } from 'astro:assets'
+
+import hero from '../assets/hero.jpg'
+
+const optimizedBackground = await getImage({
+  format: 'webp',
+  src: hero,
+})
+---
+
+<section class="relative pt-11 pb-24 md:pt-20 md:pb-44 bg-cover bg-center">
+  <h1
+    class="text-balance text-center text-4xl mb-5 text-black md:text-6xl max-w-3xl mx-auto px-1"
+  >
+    Discover<br />the beauty of Azores<br /><span
+      class="text-brand italic font-bold">& pay with crypto</span
+    >
+  </h1>
+  <p
+    class="text-balance text-center text-black mb-44 text-lg/tight max-w-3xl mx-auto px-1"
+  >
+    Crypto Ponte is a bridge between local businesses and crypto-technology,
+    that allows customers to pay for goods on Azores islands with crypto.
+  </p>
+  <button
+    class="block mx-auto mb-5 text-2xl/none uppercase text-black px-8 py-6 rounded-lg font-semibold bg-orange-gradient"
+    id="to-map"
+    type="button">See our map</button
+  >
+  <script>
+    const button = document.getElementById('to-map')
+    const map = document.getElementById('map')
+
+    button.addEventListener('click', () => {
+      map.scrollIntoView()
+    })
+  </script>
+  <p
+    class="text-balance text-center max-w-[248px] mx-auto italic text-lg/tight md:max-w-sm"
+  >
+    Our map shows places where you can already pay with cryptocurrency.
+  </p>
+  <div
+    class="absolute h-full w-full top-0 left-0 bg-cover bg-center -z-10"
+    style={`background-image: url(${optimizedBackground.src});`}
+  >
+  </div>
+  <div class="bg-black-fade absolute h-80 w-full bottom-0 -z-10"></div>
+</section>
