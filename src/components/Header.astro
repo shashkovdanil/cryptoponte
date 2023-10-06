@@ -30,6 +30,12 @@ import youtube from '../assets/youtube.svg'
 
       menuButton.addEventListener('click', () => {
         menu.classList.toggle('hidden')
+        menuButton.setAttribute(
+          'aria-expanded',
+          menuButton.getAttribute('aria-expanded') === 'true'
+            ? 'false'
+            : 'true',
+        )
       })
     </script>
   </div>
