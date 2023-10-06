@@ -7,7 +7,7 @@ module.exports = {
       backgroundImage: {
         'black-fade':
           'linear-gradient(0, #000 -6.92%, rgba(0, 0, 0, 0) 73.43%)',
-        'blue-gradient': 'linear-gradient(62.2deg, #006 -20.2%, #06c 37.45%)',
+        'blue-gradient': 'linear-gradient(45deg,#006 -4.2%,#06c 77.45%)',
         'green-gradient':
           'linear-gradient(62.2deg, #005e4c -20.2%, #99cc00 108.25%)',
         'orange-gradient':

@@ -68,29 +68,31 @@ import youtube from '../assets/youtube.svg'
     </div>
   </div>
 </header>
-<header
-  class="hidden md:flex justify-between items-center px-6 w-full max-w-6xl mx-auto py-7"
->
-  <a href="/">
-    <Image alt="Cryptoponte" height="50" src={logo} width="101" />
-  </a>
-  <nav>
-    <ul class="text-right flex gap-8 font-medium text-sm">
-      <li><a href="#about">About project</a></li>
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#supported-coins">Supported coins</a></li>
-      <li><a href="#contacts">Contacts</a></li>
-    </ul>
-  </nav>
-  <div class="flex items-center gap-4">
-    <a href="/todo">
-      <Image alt="" height="16" src={youtube} width="23" />
+<header class="hidden md:flex fixed bg-black w-full z-10">
+  <div
+    class="flex justify-between items-center w-full px-6 py-7 max-w-6xl mx-auto"
+  >
+    <a href="/">
+      <Image alt="Cryptoponte" height="50" src={logo} width="101" />
     </a>
-    <a href="/todo">
-      <Image alt="" height="20" src={x} width="22" />
-    </a>
-    <a href="/todo">
-      <Image alt="" height="18" src={telegram} width="23" />
-    </a>
+    <nav>
+      <ul class="text-right flex gap-8 font-medium text-sm">
+        <li><a href="#about">About project</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#supported-coins">Supported coins</a></li>
+        <li><a href="#contacts">Contacts</a></li>
+      </ul>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="/todo">
+        <Image alt="" height="16" src={youtube} width="23" />
+      </a>
+      <a href="/todo">
+        <Image alt="" height="20" src={x} width="22" />
+      </a>
+      <a href="/todo">
+        <Image alt="" height="18" src={telegram} width="23" />
+      </a>
+    </div>
   </div>
 </header>
