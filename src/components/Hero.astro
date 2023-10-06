@@ -9,7 +9,7 @@ const optimizedBackground = await getImage({
 })
 ---
 
-<section class="relative pt-32 pb-24 md:pt-20 md:pb-44 bg-cover bg-center">
+<section class="relative pt-32 pb-24 md:pt-16 md:pb-44 bg-cover bg-center">
   <h1
     class="text-balance text-center text-4xl mb-5 text-black md:text-6xl max-w-3xl mx-auto px-1 uppercase"
   >
@@ -41,10 +41,12 @@ const optimizedBackground = await getImage({
   >
     Our map shows places where you can already pay with cryptocurrency.
   </p>
-  <div
-    class="absolute h-full w-full top-0 left-0 bg-cover bg-center -z-10"
-    style={`background-image: url(${optimizedBackground.src});`}
-  >
+  <div>
+    <div
+      class="absolute h-full w-full top-0 left-0 bg-cover bg-center -z-10"
+      style={`background-image: url(${optimizedBackground.src});`}
+    >
+    </div>
+    <div class="bg-black-fade absolute h-80 w-full bottom-0 -z-10"></div>
   </div>
-  <div class="bg-black-fade absolute h-80 w-full bottom-0 -z-10"></div>
 </section>

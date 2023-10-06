@@ -1,13 +1,18 @@
 ---
+import type { ImageMetadata } from 'astro'
+
+import { Image } from 'astro:assets'
+
 interface Props {
   color: 'blue' | 'green' | 'orange'
   description: string
+  image: ImageMetadata
   isReverse?: boolean
   num: number
   title: string
 }
 
-const { color, description, isReverse, num, title } = Astro.props
+const { color, description, image, isReverse, num, title } = Astro.props
 ---
 
 <div
@@ -21,6 +26,11 @@ const { color, description, isReverse, num, title } = Astro.props
   ]}
 >
   <div
+    class:list={[
+      'flex rounded-t-lg relative top-1 mx-1 p-10 md:p-0 md:h-96 md:items-center md:justify-center bg-black items-start md:w-1/2 md:mb-2',
+      { 'md:rounded-l-lg md:rounded-r-none': num !== 2 },
+      { 'md:rounded-l-none md:rounded-r-lg': num === 2 },
+    ]}
     class="flex rounded-t-lg relative top-1 mx-1 p-10 md:p-0 md:h-96 md:items-center md:justify-center bg-black items-start md:w-1/2 md:rounded-l-lg md:rounded-r-none md:mb-2"
   >
     <div class="max-w-md flex gap-4 md:p-8">
@@ -37,5 +47,12 @@ const { color, description, isReverse, num, title } = Astro.props
       </div>
     </div>
   </div>
-  <div class:list={['h-36 md:w-1/2', { 'md:-order-1': isReverse }]}></div>
+  <div
+    class:list={[
+      'md:w-1/2 flex items-center justify-center',
+      { 'md:-order-1': isReverse },
+    ]}
+  >
+    <Image alt="" class="p-2 md:p-10" src={image} />
+  </div>
 </div>
